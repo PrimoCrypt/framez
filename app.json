@@ -3,9 +3,10 @@
     "name": "framez",
     "slug": "framez",
     "version": "1.0.0",
+		"scheme": "framez",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/logo.png",
@@ -31,6 +32,10 @@
       "eas": {
         "projectId": "5c22002a-2d0b-47cd-b8eb-e1294365ef2b"
       }
+    },
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
     }
   }
 }

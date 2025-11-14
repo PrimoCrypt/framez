@@ -46,8 +46,12 @@ export default function PostCard({ post, showLikeButton = false, showDeleteMenu 
         setIsLiked(true);
         setLikeCount((prev: number) => prev + 1);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error toggling like:", error);
+      Alert.alert(
+        "Error",
+        error.message || "Failed to like post. Please check your Firebase security rules."
+      );
     }
   };
 
