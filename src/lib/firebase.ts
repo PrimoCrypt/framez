@@ -5,21 +5,13 @@ import { getReactNativePersistence } from "firebase/auth";
 import { getFirestore, serverTimestamp } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-const getEnv = (key: string): string => {
-  const value = process.env[key];
-  if (!value) {
-    throw new Error(`Missing Firebase environment variable: ${key}`);
-  }
-  return value;
-};
-
 const firebaseConfig: FirebaseOptions = {
-  apiKey: getEnv("EXPO_PUBLIC_FIREBASE_API_KEY"),
-  authDomain: getEnv("EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN"),
-  projectId: getEnv("EXPO_PUBLIC_FIREBASE_PROJECT_ID"),
-  storageBucket: getEnv("EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET"),
-  messagingSenderId: getEnv("EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID"),
-  appId: getEnv("EXPO_PUBLIC_FIREBASE_APP_ID"),
+  apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY!,
+  authDomain: process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN!,
+  projectId: process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID!,
+  storageBucket: process.env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET!,
+  messagingSenderId: process.env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID!,
+  appId: process.env.EXPO_PUBLIC_FIREBASE_APP_ID!,
 };
 
 const hasAppInstance = getApps().length > 0;
